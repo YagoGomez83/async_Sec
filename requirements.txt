@@ -3,7 +3,7 @@ uvicorn[standard]==0.29.0
 celery==5.3.6
 redis==5.0.3
 pydantic-settings==2.2.1
-SQLAlchemy>=2.0.36
+SQLAlchemy>=2.0.49
 psycopg[binary]
 structlog>=24.1.0
 alembic==1.13.1
