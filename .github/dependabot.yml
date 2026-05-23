@@ -1,0 +1,32 @@
+version: 2
+updates:
+  # Mantiene los SHAs de GitHub Actions actualizados automáticamente
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: America/Argentina/Buenos_Aires
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - github-actions
+
+  # Mantiene las dependencias de Python actualizadas
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: America/Argentina/Buenos_Aires
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+      - python
+    ignore:
+      # httpx está pinado a 0.27.0 por compatibilidad con starlette 0.36.3 / FastAPI 0.110.0
+      # Descomenta cuando actualices FastAPI a una versión con starlette >=0.40
+      - dependency-name: httpx
+        versions: [">=0.28.0"]

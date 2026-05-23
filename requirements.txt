@@ -1,0 +1,15 @@
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+celery==5.3.6
+redis==5.0.3
+pydantic-settings==2.2.1
+SQLAlchemy>=2.0.36
+psycopg[binary]
+structlog>=24.1.0
+alembic==1.13.1
+
+slowapi==0.1.9
+
+# Test dependencies
+pytest>=8.0
+httpx==0.27.0
