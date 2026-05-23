@@ -1,0 +1,47 @@
+# ── Secrets & environment ──────────────────────────────────────────────────────
+.env
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ── Version control ────────────────────────────────────────────────────────────
+.git/
+.gitignore
+.github/
+
+# ── Virtual environments (use pip install inside the image instead) ────────────
+venv/
+.venv/
+env/
+
+# ── Python artifacts ───────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+
+# ── Testing (not needed in a production image) ─────────────────────────────────
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+pytest.ini
+
+# ── Documentation ──────────────────────────────────────────────────────────────
+README.md
+*.md
+
+# ── IDE / editor ───────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── OS noise ───────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Logs ───────────────────────────────────────────────────────────────────────
+*.log
+logs/
