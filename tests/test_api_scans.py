@@ -92,10 +92,10 @@ class TestCreateScan:
         response = client.post("/api/v1/scans", headers=AUTH)
         assert response.status_code == 422
 
-    def test_missing_api_key_returns_403(self, client):
-        """Sin cabecera X-API-Key debe devolver 403."""
+    def test_missing_api_key_returns_401(self, client):
+        """Sin cabecera X-API-Key debe devolver 401."""
         response = client.post("/api/v1/scans", json={"target_ip": "1.1.1.1"})
-        assert response.status_code == 403
+        assert response.status_code == 401
 
     def test_wrong_api_key_returns_403(self, client):
         """Una API key incorrecta debe devolver 403 (no 401)."""
@@ -173,10 +173,10 @@ class TestGetScanStatus:
         assert data["status"] == "FAILURE"
         assert "nmap binary not found" in data["error"]
 
-    def test_missing_api_key_returns_403(self, client):
-        """Sin cabecera X-API-Key debe devolver 403."""
+    def test_missing_api_key_returns_401(self, client):
+        """Sin cabecera X-API-Key debe devolver 401."""
         response = client.get("/api/v1/scans/any-task-id")
-        assert response.status_code == 403
+        assert response.status_code == 401
 
 
 # ════════════════════════════════════════════════════════════════════════════
@@ -278,7 +278,7 @@ class TestListScans:
         response = client.get("/api/v1/scans?skip=-1", headers=AUTH)
         assert response.status_code == 422
 
-    def test_missing_api_key_returns_403(self, client):
-        """Sin cabecera X-API-Key debe devolver 403."""
+    def test_missing_api_key_returns_401(self, client):
+        """Sin cabecera X-API-Key debe devolver 401."""
         response = client.get("/api/v1/scans")
-        assert response.status_code == 403
+        assert response.status_code == 401
